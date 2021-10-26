@@ -8,7 +8,7 @@ import {
 } from './EventForm.styles';
 import PropTypes from 'prop-types';
 
-export default function SelectionForm({ events, loaded }) {
+export default function EventForm({ events, loaded, onSetFilter }) {
   const citiesOptions = [{ label: 'All', value: 'all' }];
   const monthsOptionsValues = [
     'All',
@@ -47,7 +47,10 @@ export default function SelectionForm({ events, loaded }) {
     openMenuOnFocus: true,
     isDisabled: !loaded,
     isSearchable: false,
-    onChange: (data) => console.log(data),
+  };
+
+  const setFilterHandler = ({ value }, { name }) => {
+    onSetFilter((state) => ({ ...state, [name]: value }));
   };
 
   return (
@@ -60,6 +63,7 @@ export default function SelectionForm({ events, loaded }) {
           name="city"
           defaultValue={citiesOptions[0]}
           options={citiesOptions}
+          onChange={setFilterHandler}
         />
       </ElementWrapper>
       <ElementWrapper>
@@ -70,15 +74,17 @@ export default function SelectionForm({ events, loaded }) {
           name="month"
           defaultValue={monthsOptions[0]}
           options={monthsOptions}
+          onChange={setFilterHandler}
         />
       </ElementWrapper>
     </FormWrapper>
   );
 }
 
-SelectionForm.propTypes = {
+EventForm.propTypes = {
   events: PropTypes.array,
   loaded: PropTypes.bool,
+  onSetFilter: PropTypes.func,
 };
 
 function DropdownIndicator(props) {
