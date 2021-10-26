@@ -1,5 +1,11 @@
-import Select from 'react-select';
-import { ElementWrapper, FormWrapper, Label } from './EventForm.styles';
+import Select, { components } from 'react-select';
+import {
+  ElementWrapper,
+  FormWrapper,
+  Label,
+  selectStyle,
+  themeStyle,
+} from './EventForm.styles';
 import PropTypes from 'prop-types';
 
 export default function SelectionForm({ events, loaded }) {
@@ -35,6 +41,9 @@ export default function SelectionForm({ events, loaded }) {
   }
 
   const configProps = {
+    styles: selectStyle,
+    theme: themeStyle,
+    components: { DropdownIndicator },
     openMenuOnFocus: true,
     isDisabled: !loaded,
     isSearchable: false,
@@ -71,3 +80,25 @@ SelectionForm.propTypes = {
   events: PropTypes.array,
   loaded: PropTypes.bool,
 };
+
+function DropdownIndicator(props) {
+  return (
+    <components.DropdownIndicator {...props}>
+      <svg
+        width="14"
+        height="8"
+        viewBox="0 0 14 8"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1 1L7 7L13 1"
+          stroke="#444444"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </components.DropdownIndicator>
+  );
+}
