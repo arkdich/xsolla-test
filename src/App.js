@@ -3,6 +3,7 @@ import { GlobalStyle } from './components/globalStyle/GlobalStyle';
 import { Title } from './components/globalStyle/Title.styles';
 import EventForm from './components/form/EventForm';
 import { filterEvents } from './utlis/formHelpers';
+import EventsWrapper from './components/events/EventsWrapper';
 
 function App() {
   const [eventsState, setEventsState] = useState({
@@ -41,6 +42,10 @@ function App() {
         events={eventsState.events}
         loaded={eventsState.isLoaded}
         onSetFilter={setFilterOptions}
+      />
+      <EventsWrapper
+        events={eventsState.events}
+        loaded={eventsState.isLoaded}
       />
     </Fragment>
   );
