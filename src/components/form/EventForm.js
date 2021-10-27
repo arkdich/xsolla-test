@@ -1,7 +1,9 @@
 import Select, { components } from 'react-select';
 import {
+  Checkbox,
   ElementWrapper,
   FormWrapper,
+  CheckMarker,
   Label,
   selectStyle,
   themeStyle,
@@ -76,6 +78,28 @@ export default function EventForm({ events, loaded, onSetFilter }) {
           options={monthsOptions}
           onChange={setFilterHandler}
         />
+      </ElementWrapper>
+      <ElementWrapper>
+        <Checkbox type="checkbox" id="bookmark" />
+        <Label htmlFor="bookmark">
+          Bookmarked:
+          <CheckMarker
+            id="checkmark"
+            viewBox="0 0 24 24"
+            stroke="#0080d3"
+            strokeWidth="3"
+            width="22"
+            height="16"
+            strokeDasharray="33"
+          >
+            <path
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+              fill="none"
+              d="M22.9 3.7l-15.2 16.6-6.6-7.1"
+            ></path>
+          </CheckMarker>
+        </Label>
       </ElementWrapper>
     </FormWrapper>
   );

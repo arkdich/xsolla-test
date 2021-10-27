@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ElementWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
 
@@ -12,6 +13,37 @@ export const ElementWrapper = styled.div`
 export const Label = styled.label`
   margin-right: 15px;
   cursor: pointer;
+  white-space: nowrap;
+`;
+
+export const CheckMarker = styled.svg`
+  position: absolute;
+  top: 2px;
+  right: -22px;
+  stroke: none;
+`;
+
+export const Checkbox = styled.input`
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+
+  & + ${Label}:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 15px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #444444;
+    border-radius: 3px;
+  }
+
+  &:checked + ${Label} > ${CheckMarker} {
+    stroke: #444444;
+  }
 `;
 
 export const FormWrapper = styled.div`
