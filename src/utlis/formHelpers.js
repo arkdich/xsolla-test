@@ -10,6 +10,10 @@ export function filterEvents(events, options) {
       if (options.month !== getMonthByIndex(month, true)) return false;
     }
 
+    if (options.bookmarked) {
+      if (!event.isSaved) return false;
+    }
+
     return true;
   });
 }
@@ -34,4 +38,12 @@ export function getMonthByIndex(index, lowerCase) {
   ][index];
 
   return lowerCase ? month.toLowerCase() : month;
+}
+
+export function getBookmarked() {
+  return JSON.parse(localStorage.getItem('bookmarked')) ?? {};
+}
+
+export function storeBookmarked(data) {
+  localStorage.setItem('bookmarked', JSON.stringify(data));
 }

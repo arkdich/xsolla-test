@@ -55,6 +55,10 @@ export default function EventForm({ events, loaded, onSetFilter }) {
     onSetFilter((state) => ({ ...state, [name]: value }));
   };
 
+  const toggleBookmarkedHandler = () => {
+    onSetFilter((state) => ({ ...state, bookmarked: !state.bookmarked }));
+  };
+
   return (
     <FormWrapper>
       <ElementWrapper>
@@ -80,11 +84,14 @@ export default function EventForm({ events, loaded, onSetFilter }) {
         />
       </ElementWrapper>
       <ElementWrapper>
-        <Checkbox type="checkbox" id="bookmark" />
+        <Checkbox
+          type="checkbox"
+          id="bookmark"
+          onInput={toggleBookmarkedHandler}
+        />
         <Label htmlFor="bookmark">
           Bookmarked:
           <CheckMarker
-            id="checkmark"
             viewBox="0 0 24 24"
             stroke="#0080d3"
             strokeWidth="3"

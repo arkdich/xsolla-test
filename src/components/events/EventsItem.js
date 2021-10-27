@@ -5,18 +5,33 @@ import {
   EventsItemStyled,
   Title,
 } from './EventsItem.styles';
+import { useState } from 'react';
 
-export default function EventsItem({ name, date, img }) {
+export default function EventsItem({
+  id,
+  name,
+  date,
+  img,
+  bookmarked,
+  onSave,
+}) {
+  const [isSaved, setIsSaved] = useState(bookmarked);
+
+  const toggleSavedHandler = () => {
+    setIsSaved((state) => !state);
+    onSave(id, !isSaved);
+  };
+
   return (
     <EventsItemStyled img={img}>
       <Date>{date}</Date>
       <Title>{name}</Title>
-      <BookmarkButton>
+      <BookmarkButton onClick={toggleSavedHandler}>
         <svg
           width="20"
           height="24"
           viewBox="0 0 16 20"
-          fill="none"
+          fill={isSaved ? 'white' : 'none'}
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -33,7 +48,10 @@ export default function EventsItem({ name, date, img }) {
 }
 
 EventsItem.propTypes = {
+  id: PropTypes.string,
   name: PropTypes.string,
   date: PropTypes.string,
   img: PropTypes.string,
+  bookmarked: PropTypes.bool,
+  onSave: PropTypes.func,
 };
