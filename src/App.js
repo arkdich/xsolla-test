@@ -43,10 +43,7 @@ function App() {
         loaded={eventsState.isLoaded}
         onSetFilter={setFilterOptions}
       />
-      <EventsWrapper
-        events={eventsState.events}
-        loaded={eventsState.isLoaded}
-      />
+      <EventsWrapper events={output} loaded={eventsState.isLoaded} />
     </Fragment>
   );
 }

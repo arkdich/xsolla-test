@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    height: 100vh;
+    min-height: 100vh;
     padding: 40px;
     color: #2e282c;
     background-color: #f0f3ff;
@@ -27,6 +27,8 @@ export const GlobalStyle = createGlobalStyle`
 
   .app {
     height: 100%;
+    max-width: 1240px;
+    margin: auto;
     padding: 45px;
     background: #ffffff;
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);

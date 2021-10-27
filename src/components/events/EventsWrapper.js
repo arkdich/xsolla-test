@@ -11,6 +11,7 @@ export default function EventsWrapper({ events, loaded }) {
             key={event.id}
             name={event.name}
             date={event.date.split('.')[1]}
+            img={event.image}
           />
         ))}
     </EventsWrapperStyled>

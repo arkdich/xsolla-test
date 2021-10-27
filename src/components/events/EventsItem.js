@@ -6,15 +6,15 @@ import {
   Title,
 } from './EventsItem.styles';
 
-export default function EventsItem({ name, date }) {
+export default function EventsItem({ name, date, img }) {
   return (
-    <EventsItemStyled>
+    <EventsItemStyled img={img}>
       <Date>{date}</Date>
       <Title>{name}</Title>
       <BookmarkButton>
         <svg
-          width="16"
-          height="20"
+          width="20"
+          height="24"
           viewBox="0 0 16 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -35,4 +35,5 @@ export default function EventsItem({ name, date }) {
 EventsItem.propTypes = {
   name: PropTypes.string,
   date: PropTypes.string,
+  img: PropTypes.string,
 };
