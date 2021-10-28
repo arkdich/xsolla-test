@@ -44,6 +44,12 @@ export function getBookmarked() {
   return JSON.parse(localStorage.getItem('bookmarked')) ?? {};
 }
 
-export function storeBookmarked(data) {
-  localStorage.setItem('bookmarked', JSON.stringify(data));
+export function storeBookmarked(id, value) {
+  if (typeof value !== 'boolean') throw Error('Value must be of type boolean');
+
+  const saved = getBookmarked();
+
+  saved[id] = value;
+
+  localStorage.setItem('bookmarked', JSON.stringify(saved));
 }

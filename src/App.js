@@ -2,11 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { GlobalStyle } from './components/globalStyle/GlobalStyle';
 import { Title } from './components/globalStyle/Title.styles';
 import EventForm from './components/form/EventForm';
-import {
-  filterEvents,
-  getBookmarked,
-  storeBookmarked,
-} from './utlis/formHelpers';
+import { filterEvents, getBookmarked } from './utlis/formHelpers';
 import EventsWrapper from './components/events/EventsWrapper';
 
 function App() {
@@ -15,41 +11,29 @@ function App() {
     isLoaded: false,
   });
 
-  const [bookmarkedEvents, setBookmarkedEvents] = useState({});
-
   const [filterOptions, setFilterOptions] = useState({
     city: 'all',
     month: 'all',
     bookmarked: false,
   });
 
-  const output = filterEvents(
-    eventsState.events.map((event) => ({
-      ...event,
-      isSaved: bookmarkedEvents[event.id],
-    })),
-    filterOptions
-  );
-
-  const setBookmarkedHandler = (id, saved) => {
-    const newBooked = { ...bookmarkedEvents, [id]: saved };
-
-    setBookmarkedEvents(newBooked);
-    storeBookmarked(newBooked);
-  };
+  const output = filterEvents(eventsState.events, filterOptions);
 
   useEffect(() => {
-    console.log(getBookmarked());
-    setBookmarkedEvents(getBookmarked());
-
     (async () => {
       const res = await fetch(
         'https://raw.githubusercontent.com/xsolla/xsolla-frontend-school-2021/main/events.json'
       );
-      const data = await res.json();
+      const events = await res.json();
+
+      const savedEvents = getBookmarked();
+
+      events.forEach(
+        (event) => (event.isSaved = savedEvents[event.id] ?? false)
+      );
 
       setEventsState({
-        events: data,
+        events,
         isLoaded: true,
       });
     })();
@@ -69,8 +53,7 @@ function App() {
       <EventsWrapper
         events={output}
         loaded={eventsState.isLoaded}
-        bookmarked={bookmarkedEvents}
-        onSetBookmarked={setBookmarkedHandler}
+        onToggleSaved={setEventsState}
       />
     </Fragment>
   );

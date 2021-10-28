@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
 import { EventsWrapperStyled } from './EventsWrapper.styles';
 import EventsItem from './EventsItem';
+import { useRef } from 'react';
 
-export default function EventsWrapper({
-  events,
-  loaded,
-  bookmarked,
-  onSetBookmarked,
-}) {
-  console.log(bookmarked);
+export default function EventsWrapper({ events, loaded, onToggleSaved }) {
+  const isInitialRender = useRef(true);
+
   return (
     <EventsWrapperStyled>
       {loaded &&
@@ -19,8 +16,9 @@ export default function EventsWrapper({
             name={event.name}
             date={event.date.split('.')[1]}
             img={event.image}
-            bookmarked={bookmarked[event.id]}
-            onSave={onSetBookmarked}
+            saved={event.isSaved}
+            firstRender={isInitialRender}
+            onSave={onToggleSaved}
           />
         ))}
     </EventsWrapperStyled>
@@ -30,6 +28,5 @@ export default function EventsWrapper({
 EventsWrapper.propTypes = {
   events: PropTypes.array,
   loaded: PropTypes.bool,
-  bookmarked: PropTypes.object,
-  onSetBookmarked: PropTypes.func,
+  onToggleSaved: PropTypes.func,
 };

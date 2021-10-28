@@ -5,22 +5,36 @@ import {
   EventsItemStyled,
   Title,
 } from './EventsItem.styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { storeBookmarked } from '../../utlis/formHelpers';
 
 export default function EventsItem({
   id,
   name,
   date,
   img,
-  bookmarked,
+  saved,
+  firstRender,
   onSave,
 }) {
-  const [isSaved, setIsSaved] = useState(bookmarked);
+  const [isSaved, setIsSaved] = useState(saved);
 
   const toggleSavedHandler = () => {
     setIsSaved((state) => !state);
-    onSave(id, !isSaved);
   };
+
+  useEffect(() => {
+    if (firstRender.current) return (firstRender.current = false);
+
+    storeBookmarked(id, isSaved);
+
+    onSave((state) => ({
+      ...state,
+      events: state.events.map((event) =>
+        event.id === id ? { ...event, isSaved } : event
+      ),
+    }));
+  }, [isSaved]);
 
   return (
     <EventsItemStyled img={img}>
@@ -52,6 +66,7 @@ EventsItem.propTypes = {
   name: PropTypes.string,
   date: PropTypes.string,
   img: PropTypes.string,
-  bookmarked: PropTypes.bool,
+  saved: PropTypes.bool,
+  firstRender: PropTypes.object,
   onSave: PropTypes.func,
 };
