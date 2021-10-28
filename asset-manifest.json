@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/xsolla-test/static/js/main.61cc90ed.chunk.js",
+    "runtime-main.js": "/xsolla-test/static/js/runtime-main.0c79c59d.js",
+    "static/js/2.53ab907e.chunk.js": "/xsolla-test/static/js/2.53ab907e.chunk.js",
+    "index.html": "/xsolla-test/index.html",
+    "static/js/2.53ab907e.chunk.js.LICENSE.txt": "/xsolla-test/static/js/2.53ab907e.chunk.js.LICENSE.txt",
+    "static/media/AvenirLTStd-Roman.0bfb049d.otf": "/xsolla-test/static/media/AvenirLTStd-Roman.0bfb049d.otf",
+    "static/media/spinner.3fe918b8.svg": "/xsolla-test/static/media/spinner.3fe918b8.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0c79c59d.js",
+    "static/js/2.53ab907e.chunk.js",
+    "static/js/main.61cc90ed.chunk.js"
+  ]
+}
