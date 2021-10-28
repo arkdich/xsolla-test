@@ -2,6 +2,7 @@
   "name": "xsolla-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://arkdich.github.io/xsolla-test/",
   "repository": {
     "type": "git",
     "url": "git@github.com:arkdich/xsolla-test.git"
@@ -10,13 +11,16 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-select": "^5.1.0",
     "styled-components": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build --branch gh-pages",
+    "predeploy": "npm run build"
   },
   "browserslist": {
     "production": [
@@ -29,5 +33,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }

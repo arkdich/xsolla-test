@@ -39,8 +39,6 @@ function App() {
     })();
   }, []);
 
-  console.log(output);
-
   return (
     <Fragment>
       <GlobalStyle />
