@@ -16,7 +16,7 @@ export const Title = styled.h2`
   bottom: 9%;
   left: 6%;
   line-height: 1;
-  font-size: 3.2vw;
+  font-size: 3vw;
 `;
 
 export const BookmarkButton = styled.button`

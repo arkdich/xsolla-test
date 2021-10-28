@@ -44,6 +44,10 @@ export const Checkbox = styled.input`
   &:checked + ${Label} > ${CheckMarker} {
     stroke: #444444;
   }
+
+  &:focus + ${Label}:after {
+    box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.3);
+  }
 `;
 
 export const FormWrapper = styled.div`
@@ -52,13 +56,17 @@ export const FormWrapper = styled.div`
   align-items: center;
   margin-top: 25px;
 
-  @media only screen and (max-width: 668px) {
+  @media only screen and (max-width: 799px) {
     flex-direction: column;
     align-items: flex-start;
 
     ${ElementWrapper}:not(:first-of-type) {
       margin-top: 20px;
       margin-left: 0;
+    }
+
+    ${ElementWrapper}:nth-of-type(1) > [class$='-container'] {
+      width: 169px;
     }
   }
 `;

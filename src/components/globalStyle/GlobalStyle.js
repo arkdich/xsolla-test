@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    padding: 40px;
+    padding: 6vw;
     color: #2e282c;
     background-color: #f0f3ff;
     font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -25,13 +25,23 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  button, label {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   .app {
     height: 100%;
     max-width: 1240px;
     margin: auto;
-    padding: 45px;
+    padding: 55px;
     background: #ffffff;
     box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
     border-radius: 16px;
+  }
+
+  @media only screen and (max-width: 499px) {
+    .app {
+      padding: 30px;
+    }
   }
 `;
