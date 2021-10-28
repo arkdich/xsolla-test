@@ -33,7 +33,7 @@ export const BookmarkButton = styled.button`
   }
 `;
 
-export const EventsItemStyled = styled.div`
+export const EventsItemStyled = styled.article`
   position: relative;
   height: 0;
   padding-top: 66.66%;

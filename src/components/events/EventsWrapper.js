@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types';
 import { EventsWrapperStyled, Fallback } from './EventsWrapper.styles';
 import EventsItem from './EventsItem';
-import { useRef } from 'react';
 import LoadingSpinner from './LoadingSpinner';
 
 export default function EventsWrapper({ events, loaded, onToggleSaved }) {
-  const isInitialRender = useRef(true);
-
   return (
     <EventsWrapperStyled eventsCount={events.length}>
       {loaded ? (
@@ -18,7 +15,6 @@ export default function EventsWrapper({ events, loaded, onToggleSaved }) {
             date={event.date.split('.')[1]}
             img={event.image}
             saved={event.isSaved}
-            firstRender={isInitialRender}
             onSave={onToggleSaved}
           />
         ))

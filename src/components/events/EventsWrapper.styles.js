@@ -5,7 +5,7 @@ export const Fallback = styled.p`
   margin: auto;
 `;
 
-export const EventsWrapperStyled = styled.div`
+export const EventsWrapperStyled = styled.main`
   display: grid;
   grid-template-columns: ${(props) =>
     props.eventsCount !== 0 ? 'repeat(2, 1fr)' : '1fr'};
