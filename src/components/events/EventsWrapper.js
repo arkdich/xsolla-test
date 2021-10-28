@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
-import { EventsWrapperStyled } from './EventsWrapper.styles';
+import { EventsWrapperStyled, Fallback } from './EventsWrapper.styles';
 import EventsItem from './EventsItem';
 import { useRef } from 'react';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function EventsWrapper({ events, loaded, onToggleSaved }) {
   const isInitialRender = useRef(true);
 
   return (
-    <EventsWrapperStyled>
-      {loaded &&
+    <EventsWrapperStyled eventsCount={events.length}>
+      {loaded ? (
         events.map((event) => (
           <EventsItem
             key={event.id}
@@ -20,7 +21,11 @@ export default function EventsWrapper({ events, loaded, onToggleSaved }) {
             firstRender={isInitialRender}
             onSave={onToggleSaved}
           />
-        ))}
+        ))
+      ) : (
+        <LoadingSpinner />
+      )}
+      {loaded && events.length === 0 && <Fallback>No events found</Fallback>}
     </EventsWrapperStyled>
   );
 }
