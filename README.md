@@ -10,13 +10,8 @@
 ## See [Live Demo](https://arkdich.github.io/xsolla-test/)
 
 # Features
-- allows to add, mark and delete tasks with gorgeous animations
-
-  ![](https://i.imgur.com/iBNyYij.gif)
-  
-- pick a specific date
-  
-  ![](https://i.imgur.com/l0oeXvL.gif)
+- filter events by city and month
+- bookmark events
   
  # Installation
  Clone this repo and install dependencies
