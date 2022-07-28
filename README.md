@@ -10,8 +10,13 @@
 ## See [Live Demo](https://arkdich.github.io/xsolla-test/)
 
 # Features
-- filter events by city and month
-- bookmark events
+- filter events by city and month<br>
+
+  <img src="https://github.com/arkdich/github-gifs/blob/main/xsolla-1.gif" width="450"/>
+
+- bookmark events<br>
+
+  <img src="https://github.com/arkdich/github-gifs/blob/main/xsolla-2.gif" width="450"/>
   
  # Installation
  Clone this repo and install dependencies
