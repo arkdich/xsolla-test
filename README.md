@@ -1,35 +1,39 @@
+### [Read in English](README.en.md)
+
 # About
-[Task](https://github.com/xsolla/xsolla-frontend-school-2021) was to make event listing website with existing layout. Mobile version, bookmark filter and bookmark state preservasion were optional requariments 
 
-- written with react
-- styled with [styled-components](https://github.com/styled-components/styled-components)
-- stores bookmark flags in localstorage
-- uses [react-select](https://github.com/JedWatson/react-select) component
+[Тестовое задание](https://github.com/xsolla/xsolla-frontend-school-2021) заключалось в верстке сайта по имеющемуся макету. Адаптивная верстка, фильтр избранного и сохранение состояния избранного были оптиональны
 
+- использовал: react, [styled-components](https://github.com/styled-components/styled-components)
+- [react-select](https://github.com/JedWatson/react-select) для кастомного `<select />`
+- избранное хранится в `localstorage`
 
-## See [Live Demo](https://arkdich.github.io/xsolla-test/)
+## [Онлайн демка](https://arkdich.github.io/xsolla-test/)
 
 # Features
-- filter events by city and month<br>
+
+- фильтрация по городу и месяцу<br>
 
   <img src="https://github.com/arkdich/github-gifs/blob/main/xsolla-1.gif" width="450"/>
 
-- bookmark events<br>
+- сохранение в избранном<br>
 
   <img src="https://github.com/arkdich/github-gifs/blob/main/xsolla-2.gif" width="450"/>
-  
- # Installation
- Clone this repo and install dependencies
- ```
- git clone git@github.com:arkdich/xsolla-test.git
- ```
- ```
- npm i
- ```
- Start dev server
- ```
- npm start
- ```
 
- 
+# Installation
 
+Склонируйте репозиторий и установите зависимости
+
+```
+git clone git@github.com:arkdich/xsolla-test.git
+```
+
+```
+npm i
+```
+
+Запустите dev сервер
+
+```
+npm start
+```
